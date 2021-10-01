@@ -29,7 +29,7 @@ const FruitSchema = new mongoose.Schema({
 })
 
 const UserSchema = new mongoose.Schema({
-   email :{type :String , unique: true , required : true  }  ,
+   email : String    ,
     fruits : [FruitSchema]
 })
 
@@ -51,7 +51,7 @@ const seedfunc = ()=>{
                 "price": 36
                 },
 
-        ]
+        ],
     });
     suzan.save().then(()=>console.log('done')).catch(()=>console.log('doublcated'))
 }
@@ -127,6 +127,9 @@ const updatefav=(req,res)=>{
      })
 
 }
+app.get('/' , (req,res)=>{
+    res.send('hello')
+})
 app.get('/fruits' , getAllFruits);
 app.get('/favlist/:email' , getfavlist);
 app.post('/favlist/:email' , posttofav) ;
